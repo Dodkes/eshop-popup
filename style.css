@@ -44,3 +44,12 @@
   left: 194px;
   top: 275px;
 }
+
+#union-container {
+  width: 121px;
+  height: 121px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 64px;
+  top: 35px;
+}
