@@ -12,11 +12,11 @@
 <body>
 
     <div id="popup-container">
-        <!-- <svg id="close-button" width="15" height="15" viewBox="0 0 15 15" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L13.2845 13.2845" stroke="#393939" stroke-width="2" stroke-linecap="round" />
-            <path d="M13.2847 1L1.00018 13.2845" stroke="#393939" stroke-width="2" stroke-linecap="round" />
-        </svg> -->
+        <svg id="close-button" width="15" height="15" viewBox="0 0 15 15" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L13.2845 13.2845" stroke="#393939" stroke-width="2" stroke-linecap="round" />
+        <path d="M13.2847 1L1.00018 13.2845" stroke="#393939" stroke-width="2" stroke-linecap="round" />
+    </svg>
         <div id="img-container">
             <svg id="tongue-sticker" xmlns="http://www.w3.org/2000/svg" width="93" height="93" viewBox="0 0 93 93"
                 fill="none">
@@ -131,14 +131,14 @@
                 <div id="description">Chceš 10% zľavu na prvú objednávku? <br /> Zadaj email a užívaj si krásne vlasy
                     teraz ešte lacnejšie!</div>
             </div>
-            <form id="form" action="">
-                <input id="name" placeholder="MENO" type="text">
-                <input id="email" placeholder="EMAILOVÁ ADRESA" type="email">
-                <input name="radio" id="radio" type="radio">
+            <form id="form">
+                <input required id="name" placeholder="MENO" type="text">
+                <input required id="email" placeholder="EMAILOVÁ ADRESA" type="email">
+                <input required name="radio" id="radio" type="radio">
                 <label for="radio" id="agree-label">I agree to the User Agreement and <a id="privacy-policy" href="https://www.bloomrobbins.sk/pages/ochrana-osobnych-udajov" target="_blank">
                         Privacy Policy.
                 </a></label>
-                <button id="login-button">Prihlásiť sa</button>
+                <button type="submit" id="login-button">Prihlásiť sa</button>
             </form>
         </div>
     </div>

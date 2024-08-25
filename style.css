@@ -7,7 +7,7 @@
 #popup-container {
   width: 820px;
   height: 590px;
-  display: flex;
+  display: none;
   flex-shrink: 0;
   border-radius: 15px;
   background: #ffe0f9;
@@ -18,14 +18,17 @@
   transform: translate(-50%, -50%);
 }
 
-/* #close-button {
+#close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
   cursor: pointer;
   width: 12.285px;
   height: 12.284px;
   flex-shrink: 0;
   float: right;
   margin: 20px;
-} */
+}
 
 #img-container {
   display: flex;
@@ -135,6 +138,7 @@
   font-weight: 700;
   line-height: 40px; /* 100% */
   letter-spacing: -1px;
+  width: 100%;
 }
 
 #description {
