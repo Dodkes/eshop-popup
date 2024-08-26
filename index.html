@@ -138,6 +138,7 @@
     }
 
     #popup-container {
+        z-index: 999;
         width: 820px;
         height: 590px;
         display: none;
@@ -342,7 +343,7 @@
         font-family: "ABC Monument Grotesk";
         font-size: 14px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: bold;        
         line-height: normal;
         text-decoration: none;
     }
@@ -372,12 +373,68 @@
     #login-button:hover {
         cursor: pointer;
     }
+
+    @media (max-width: 825px) {
+        #popup-container {
+            width: 370px;
+    }
+
+    #img-container{
+        height: 595px;
+    }
+
+    #form-container {
+        right: 50px;
+        top: 200px;
+        display: flex;
+        width: 268px;
+        align-items: center;
+    }
+ 
+    #agree-label {
+        color: black;
+        font-weight: bold;
+    }
+
+    #heading {
+        font-size: 40px;
+        font-weight: 200;
+        line-height: 40px;
+        text-shadow: 2px 2px 2px black;
+    }
+    
+    #first-order {
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 40px;
+    }
+
+    #yeah-container {
+        top: 113px;
+        left: 163px;
+    }
+
+
+    #description {
+        display: none;
+    }
+    #login-button {
+        margin-top: 0;
+
+    }
+    #radio {
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+    }
+
+
 </style>
 
 <script>
     const popup = document.getElementById("popup-container");
     const closeButton = document.getElementById("close-button");
-    const popupShowTime = 10000;
+    const popupShowTime = 0;
 
     closeButton.addEventListener("click", () => {
         popup.style.display = "none";
@@ -393,7 +450,42 @@
         event.preventDefault();
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
-        console.log(name, email);
+
+        const customerData = {
+      customer: {
+        name: name,
+        email: email
+      }
+    };
+
+    const apiKey = 'c1d77306dc69052b5d8268591f804510';
+    const accessToken = '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';
+    const shopName = '7a3387-f2';
+
+    // API URL
+    // const apiUrl = `https://${apiKey}:${accessToken}@${shopName}.myshopify.com/admin/api/2024-01/customers.json`;
+    const apiUrl = `https://${shopName}.myshopify.com/admin/api/2024-01/customers.json`;
+
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+      },
+      body: JSON.stringify(customerData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.customer) {
+        alert('Zákazník bol úspešne pridaný!');
+      } else {
+        alert('Došlo k chybe pri pridávaní zákazníka.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Došlo k chybe pri odosielaní údajov.');
+    });
     });
 
 </script>
